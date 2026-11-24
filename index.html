@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>খেজুরঘর · KhejurGhor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Cpath fill=%22%23442817%22 d=%22M24 3 44 17v25a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V17Z%22/%3E%3Cpath stroke=%22%23D6B47A%22 d=%22M4 17 24 3l20 14%22 fill=%22none%22 stroke-width=%222%22 stroke-linejoin=%22round%22 stroke-linecap=%22round%22/%3E%3Cpath fill=%22%23F5EBDD%22 d=%22M24 22C22 16 22 12 24 8.5 26 12 26 16 24 22ZM24 22C21 17.5 17 16 13.5 18 17.5 18.5 21 19.5 24 22ZM24 22C27 17.5 31 16 34.5 18 30.5 18.5 27 19.5 24 22Z%22/%3E%3Cellipse fill=%22%23D6B47A%22 cx=%2217.6%22 cy=%2234.5%22 rx=%225.3%22 ry=%229%22 transform=%22rotate%28-16 17.6 34.5%29%22/%3E%3Cellipse fill=%22%23D6B47A%22 cx=%2230.4%22 cy=%2234.5%22 rx=%225.3%22 ry=%229%22 transform=%22rotate%2816 30.4 34.5%29%22/%3E%3Cpath d=%22M15.2 30C15.6 33 16 36 16.6 38.5M32.8 30C32.4 33 32 36 31.4 38.5%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 opacity=%22.4%22/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--brown:#442817;--caramel:#A66C32;--gold:#D6B47A;--cream:#F5EBDD;--off:#FFFDF8;--ink:#29221C;--sh:0 6px 24px rgba(68,40,23,.10)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;background:var(--off);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--caramel);outline-offset:2px}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+section{padding:64px 0}
+h1,h2,h3{line-height:1.25;color:var(--brown)}
+h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:8px}
+.sub{color:#6b5a4c;margin-bottom:28px;max-width:60ch}
+.demo{background:var(--brown);color:var(--gold);font-size:.82rem;text-align:center;padding:6px 12px}
+header{position:sticky;top:0;z-index:30;background:rgba(255,253,248,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--cream)}
+.nav{display:flex;align-items:center;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.3rem;color:var(--brown)}
+.mark{width:44px;height:44px;flex:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.logo:hover .mark{transform:rotate(-5deg) scale(1.08)}
+.lg-h{fill:var(--brown)}.lg-r{stroke:var(--gold)}.lg-d{fill:var(--gold)}.lg-l{fill:var(--cream)}
+.wm{display:flex;flex-direction:column;line-height:1.05}
+.wm small{font-size:.66rem;font-weight:500;letter-spacing:.2em;color:var(--caramel);margin-top:3px}
+nav{display:flex;gap:2px;margin-left:auto;font-size:.95rem}
+
+.ic{background:none;border:1px solid var(--cream);border-radius:10px;padding:7px 11px;position:relative}
+.ic b{position:absolute;top:-7px;right:-7px;background:var(--caramel);color:#fff;border-radius:99px;font-size:.7rem;min-width:19px;height:19px;display:grid;place-items:center}
+.btn{background:var(--brown);color:var(--off);border:0;border-radius:10px;padding:10px 20px;font-weight:600;transition:.2s}
+.btn:hover{background:var(--caramel)}.btn.alt{background:transparent;color:var(--brown);border:1.5px solid var(--brown)}.btn.alt:hover{background:var(--brown);color:var(--off)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#burger{display:none}
+.hero{background:linear-gradient(120deg,var(--cream),#efdfc6);padding:56px 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);font-weight:700;margin-bottom:16px;background:linear-gradient(100deg,#442817 0%,#A66C32 40%,#B8863B 55%,#A66C32 70%,#442817 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 7s ease-in-out infinite alternate,pop .8s cubic-bezier(.34,1.56,.64,1) backwards;width:fit-content;max-width:100%;transform-origin:left center;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes shine{from{background-position:0 0}to{background-position:100% 0}}
+.hero p{max-width:52ch;margin-bottom:24px;font-weight:600;color:var(--brown);font-size:1.08rem}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.trust{display:flex;gap:20px;flex-wrap:wrap;font-size:.92rem;font-weight:700;color:var(--caramel)}
+.trust span::before{content:"✓ ";color:var(--caramel);font-weight:700}
+.ph{position:relative;background:repeating-linear-gradient(45deg,#efe0c8,#efe0c8 12px,#f5ebdd 12px,#f5ebdd 24px);display:grid;place-items:center;text-align:center;overflow:hidden;color:#8a6a45}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph small{font-size:.7rem;padding:0 10px;word-break:break-all;opacity:.85}
+.ph b{display:block;font-size:2rem;color:var(--caramel)}
+.heroimg{aspect-ratio:1;border-radius:46% 46% 18px 18px;box-shadow:var(--sh)}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cat{border-radius:18px;overflow:hidden;background:var(--cream);box-shadow:var(--sh);cursor:pointer;display:grid;grid-template-columns:1fr 1fr;min-height:200px;border:0;text-align:left;transition:.25s}
+.cat:hover{transform:translateY(-3px)}.cat div.t{padding:24px;align-self:center}.cat h3{margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
+.card .ph{aspect-ratio:1;cursor:pointer}
+.card .bd{padding:14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:1.02rem;cursor:pointer}.card .en{font-size:.82rem;color:#7a6755}
+.pr{font-weight:700;color:var(--brown);font-size:1.1rem}.pr s{font-weight:400;color:#99876f;font-size:.88rem;margin-left:6px}
+.tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--caramel);color:#fff;font-size:.75rem;padding:2px 9px;border-radius:99px}
+.st{font-size:.8rem}.st.in{color:#3c7a3c}.st.low{color:#b0701a}.st.out{color:#b33}
+.card .row{display:flex;gap:8px;margin-top:auto;padding-top:8px}.card .row .btn{padding:8px 10px;font-size:.88rem;flex:1}
+.stars{color:var(--gold);font-size:.82rem;letter-spacing:1px}.stars em{color:#99876f;font-style:normal;letter-spacing:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{background:var(--cream);border:0;padding:8px 18px;border-radius:99px}.tab.on{background:var(--brown);color:var(--off)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.bar input,.bar select,.f input,.f select,.f textarea{padding:9px 12px;border:1.5px solid #e2d3bb;border-radius:10px;background:#fff}
+.bar input{flex:1;min-width:200px}
+.count{color:#6b5a4c;font-size:.9rem;margin-bottom:14px}
+.more{text-align:center;margin-top:28px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.feat>div,.sp{background:var(--cream);border-radius:16px;padding:22px}
+.feat h3{font-size:1.05rem;margin-bottom:4px}
+.alt-bg{background:var(--cream)}.alt-bg .feat>div,.alt-bg .sp{background:var(--off)}
+.sp .pr{margin:8px 0}
+.rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.rev blockquote{background:#fff;border-radius:16px;padding:22px;box-shadow:var(--sh);font-size:.95rem}
+.rev cite{display:block;margin-top:10px;font-style:normal;color:#8a6a45;font-size:.85rem}
+details{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:var(--sh)}
+summary{cursor:pointer;font-weight:600;color:var(--brown)}details p{margin-top:8px;color:#5a4636}
+table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;overflow:hidden}
+td,th{padding:12px 16px;border-bottom:1px solid var(--cream);text-align:left}th{background:var(--brown);color:var(--off)}
+footer{background:var(--brown);color:#e8d8bf;padding:48px 0 20px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px}
+footer h4{color:var(--gold);margin-bottom:10px}footer a{display:block;padding:2px 0;opacity:.9}footer a:hover{color:var(--gold)}
+footer .logo{color:var(--gold)}footer .lg-h{fill:var(--gold)}footer .lg-r{stroke:var(--brown)}footer .lg-d{fill:var(--brown)}footer .lg-l{fill:var(--brown)}footer .wm small{color:#e8d8bf}
+.copy{text-align:center;font-size:.82rem;margin-top:30px;opacity:.7}
+.ov{position:fixed;inset:0;background:rgba(41,34,28,.5);z-index:50;display:none}.ov.on{display:block}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:var(--off);z-index:60;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--cream)}
+.di{flex:1;overflow:auto;padding:12px 20px}
+.ci{display:grid;grid-template-columns:62px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--cream);font-size:.9rem}
+.ci .ph{width:62px;height:62px;border-radius:10px}.ci .ph b{font-size:1rem}
+.q{display:inline-flex;align-items:center;border:1.5px solid #e2d3bb;border-radius:8px;margin-top:4px}
+.q button{background:none;border:0;width:28px;height:28px}.q span{min-width:26px;text-align:center}
+.x{background:none;border:0;color:#b33;font-size:.8rem}
+.df{padding:16px 20px;border-top:1px solid var(--cream);background:#fff;font-size:.92rem}
+.df .l{display:flex;justify-content:space-between;padding:2px 0}.df .t{font-weight:700;font-size:1.1rem;color:var(--brown);border-top:1px dashed #d8c7aa;margin-top:6px;padding-top:6px}
+.df select{width:100%;padding:8px;border:1.5px solid #e2d3bb;border-radius:8px;margin:6px 0}
+.modal{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:16px}.modal.on{display:flex}
+.mb{background:var(--off);border-radius:20px;max-width:900px;width:100%;max-height:92vh;overflow:auto;padding:26px;position:relative}
+.mx{position:absolute;top:12px;right:14px;background:var(--cream);border:0;border-radius:50%;width:34px;height:34px;z-index:3}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pd .main{aspect-ratio:1;border-radius:16px}.th{display:flex;gap:8px;margin-top:8px}.th .ph{width:70px;height:70px;border-radius:10px;cursor:pointer;border:2px solid transparent}.th .ph.on{border-color:var(--caramel)}
+.wo{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.wo button{border:1.5px solid #e2d3bb;background:#fff;border-radius:99px;padding:5px 14px}.wo button.on{background:var(--brown);color:var(--off);border-color:var(--brown)}
+.info{font-size:.9rem;background:var(--cream);border-radius:12px;padding:12px 16px;margin:12px 0}.info p{margin:3px 0}
+.f{display:grid;gap:12px}.f label{font-weight:600;font-size:.9rem;display:grid;gap:4px}.f .er{color:#b33;font-size:.8rem;font-weight:400;min-height:1em}
+.ok{text-align:center;padding:20px}.ok h2{color:#3c7a3c}
+#fc{position:fixed;right:18px;bottom:22px;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#fc .m{display:none;flex-direction:column;gap:8px}#fc.on .m{display:flex}
+#fc .m a{background:#fff;color:var(--brown);border-radius:99px;padding:10px 18px;box-shadow:var(--sh);font-weight:600;white-space:nowrap;border:1.5px solid var(--gold)}
+#fc .m a:hover{background:var(--cream)}
+#fc .main{background:var(--brown);color:var(--gold);border:0;border-radius:99px;padding:14px 22px;font-weight:700;box-shadow:0 8px 24px rgba(68,40,23,.35)}
+#fc .main:hover{background:var(--caramel);color:#fff}
+.ben{background:var(--brown);color:var(--cream)}
+.ben h2{color:var(--gold)}.ben .sub{color:#e8d8bf;font-weight:600}
+.ben .feat>div{background:rgba(255,253,248,.07);border:1px solid rgba(214,180,122,.35)}
+.ben .feat h3{color:var(--gold)}.ben .note{font-size:.85rem;color:#cdb894;margin-top:22px;max-width:70ch}
+header{transition:box-shadow .3s}header.sc{box-shadow:0 10px 30px rgba(68,40,23,.12)}
+nav a{position:relative;padding:8px 12px;border-radius:99px;font-weight:500;transition:color .25s,background .25s,transform .25s}
+nav a::after{content:"";position:absolute;left:50%;bottom:3px;width:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--caramel));transition:left .3s cubic-bezier(.2,.8,.2,1),width .3s cubic-bezier(.2,.8,.2,1)}
+nav a:hover{color:var(--caramel);background:linear-gradient(180deg,rgba(214,180,122,.22),rgba(214,180,122,.06));transform:translateY(-1px)}
+nav a:hover::after{left:16%;width:68%}
+.ic{transition:border-color .2s,background .2s,transform .2s}.ic:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-1px)}
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(440px circle at var(--mx,70%) var(--my,40%),rgba(214,180,122,.4),transparent 62%);opacity:0;transition:opacity .4s;pointer-events:none}
+.hero:hover::before{opacity:1}
+.hero .wrap{position:relative;z-index:1}
+.hero h1:hover{transform:scale(1.04)}
+.hero .btn{display:inline-block;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,background .2s,color .2s}
+.hero .btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .65s}
+.hero .btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(68,40,23,.28)}
+.hero .btn:hover::after{left:130%}
+.trust span{transition:transform .25s,color .25s;cursor:default}.trust span:hover{transform:translateY(-3px);color:var(--brown)}
+.heroimg{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.heroimg:hover{transform:translateY(-8px) scale(1.025);box-shadow:0 30px 60px rgba(68,40,23,.28),0 0 0 6px rgba(214,180,122,.5)}
+.heroimg img{transition:transform .9s cubic-bezier(.2,.8,.2,1)}.heroimg:hover img{transform:scale(1.08)}
+.pop{width:fit-content;max-width:100%;transform-origin:left center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),text-shadow .3s}
+.pop:not(.in){opacity:0}.pop.in{animation:pop .75s cubic-bezier(.34,1.56,.64,1) backwards}
+.pop:hover{transform:scale(1.05);text-shadow:0 6px 18px rgba(166,108,50,.28)}
+@keyframes pop{0%{opacity:0;transform:scale(.6) translateY(18px)}60%{opacity:1;transform:scale(1.08) translateY(-2px)}100%{opacity:1;transform:none}}
+.spimg{aspect-ratio:16/10;border-radius:12px;margin-bottom:14px}.spimg svg{width:46%;max-width:150px;height:auto}
+@media(max-width:1020px) and (min-width:861px){nav a{padding:6px 7px;font-size:.88rem}.nav{gap:8px}}
+.ob{display:none}.ob b{margin-left:6px;font-weight:700}
+@media(max-width:860px){.ob{display:block;padding:0 12px 10px}.ob .btn{width:100%;padding:11px;font-size:1rem}.nav{gap:6px}.nav .ic{padding:6px 9px}.mark{width:38px;height:38px}.wm{font-size:1.1rem}html{scroll-padding-top:128px}}
+@media(max-width:860px){nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--off);flex-direction:column;padding:16px 20px;border-bottom:1px solid var(--cream)}nav.on{display:flex}#burger{display:block;margin-left:auto}.nav .ic.cartb{margin-left:0}.hero .wrap,.pd,footer .wrap,.cats{grid-template-columns:1fr}.heroimg{max-width:340px;margin:auto}.hide-s{display:none}}
+@media(prefers-reduced-motion:reduce){.hero h1{animation:none}.pop:not(.in){opacity:1}.pop.in{animation:none}.hero::before{display:none}*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body id="top">
+<header><div class="wrap nav">
+<a class="logo" href="#top"><svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path class="lg-h" d="M24 3 44 17v25a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V17Z"/><path class="lg-r" d="M4 17 24 3l20 14" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path class="lg-l" d="M24 22C22 16 22 12 24 8.5 26 12 26 16 24 22ZM24 22C21 17.5 17 16 13.5 18 17.5 18.5 21 19.5 24 22ZM24 22C27 17.5 31 16 34.5 18 30.5 18.5 27 19.5 24 22Z"/><ellipse class="lg-d" cx="17.6" cy="34.5" rx="5.3" ry="9" transform="rotate(-16 17.6 34.5)"/><ellipse class="lg-d" cx="30.4" cy="34.5" rx="5.3" ry="9" transform="rotate(16 30.4 34.5)"/><path d="M15.2 30C15.6 33 16 36 16.6 38.5M32.8 30C32.4 33 32 36 31.4 38.5" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".4"/></svg><span class="wm">খেজুরঘর<small>KhejurGhor</small></span></a>
+<nav id="nav">
+<a href="#top" data-t="home"></a><a href="#products" onclick="goCat('all')" data-t="all"></a><a href="#products" onclick="goCat('d')" data-t="dates"></a><a href="#products" onclick="goCat('p')" data-t="made"></a><a href="#special" data-t="gift"></a><a href="#about" data-t="about"></a><a href="#faq" data-t="faq"></a><a href="#contact" data-t="contact"></a>
+</nav>
+<button class="ic" aria-label="Search" onclick="goCat(cat);document.getElementById('q').focus()">🔍</button>
+<button class="ic" id="lang" onclick="setLang()" aria-label="Language">EN</button>
+<button class="ic cartb" onclick="openCart()" aria-label="Cart">🛒<b id="cc">0</b></button>
+<button class="btn hide-s" onclick="goCat('all');location.hash='#products'" data-t="order"></button>
+<button class="ic" id="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('on')">☰</button>
+</div>
+<div class="ob"><button class="btn" onclick="orderNow()"><span data-t="order"></span><b id="obc"></b></button></div></header>
+
+<section class="hero"><div class="wrap">
+<div>
+<h1 data-t="h1"></h1><p data-t="hp"></p>
+<div class="cta"><a class="btn" href="#products" onclick="goCat('all')" data-t="buy"></a><a class="btn alt" href="#products" onclick="goCat('all')" data-t="seeall"></a></div>
+<div class="trust"><span data-t="tr1"></span><span data-t="tr2"></span><span data-t="tr3"></span></div>
+</div>
+<div class="ph heroimg" data-img="public/images/hero.jpg"></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-t="catH"></h2><p class="sub" data-t="catS"></p>
+<div class="cats">
+<button class="cat" onclick="goCat('d');location.hash='#products'"><div class="t"><h3 data-t="c1"></h3><p data-t="c1d"></p></div><div class="ph" data-img="public/images/categories/dates.jpg"></div></button>
+<button class="cat" onclick="goCat('p');location.hash='#products'"><div class="t"><h3 data-t="c2"></h3><p data-t="c2d"></p></div><div class="ph" data-img="public/images/categories/date-products.jpg"></div></button>
+</div></div></section>
+
+<section class="ben"><div class="wrap"><h2 data-t="benH"></h2><p class="sub" data-t="tag"></p><div class="feat" id="ben"></div><p class="note" data-t="benN"></p></div></section>
+
+<section class="alt-bg"><div class="wrap"><h2 data-t="featH"></h2><p class="sub" data-t="featS"></p><div class="grid" id="featured"></div></div></section>
+
+<section id="products"><div class="wrap">
+<h2 data-t="all"></h2>
+<div class="tabs" id="tabs"></div>
+<div class="bar">
+<input id="q" type="search" oninput="page=1;renderAll()" data-ph="search">
+<select id="fp" onchange="page=1;renderAll()"></select>
+<select id="fw" onchange="page=1;renderAll()"></select>
+<select id="so" onchange="renderAll()"></select>
+</div>
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+<div class="more"><button class="btn alt" id="more" onclick="page++;renderAll()" data-t="more"></button></div>
+</div></section>
+
+<section id="about" class="alt-bg"><div class="wrap">
+<h2 data-t="whyH"></h2><p class="sub" data-t="whyS"></p>
+<div class="feat" id="why"></div>
+</div></section>
+
+<section id="special"><div class="wrap">
+<h2 data-t="spH"></h2><p class="sub" data-t="spS"></p>
+<div class="feat" id="sp"></div>
+</div></section>
+
+<section class="alt-bg"><div class="wrap">
+<h2 data-t="infH"></h2><p class="sub" data-t="infS"></p>
+<div class="feat" id="inf"></div>
+</div></section>
+
+<section><div class="wrap"><h2 data-t="revH"></h2><p class="sub" data-t="revS"></p><div class="rev" id="rev"></div></div></section>
+
+<section id="faq" class="alt-bg"><div class="wrap" style="max-width:820px"><h2 data-t="faq"></h2><div id="faqs" style="margin-top:20px"></div></div></section>
+
+<section><div class="wrap"><h2 data-t="delH"></h2><p class="sub" data-t="delS"></p>
+<table><thead><tr><th data-t="zone"></th><th data-t="chg"></th><th data-t="eta"></th></tr></thead><tbody id="deltb"></tbody></table>
+<p class="sub" style="margin-top:12px" data-t="cod"></p></div></section>
+
+<footer id="contact"><div class="wrap">
+<div><a class="logo" href="#top"><svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path class="lg-h" d="M24 3 44 17v25a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V17Z"/><path class="lg-r" d="M4 17 24 3l20 14" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path class="lg-l" d="M24 22C22 16 22 12 24 8.5 26 12 26 16 24 22ZM24 22C21 17.5 17 16 13.5 18 17.5 18.5 21 19.5 24 22ZM24 22C27 17.5 31 16 34.5 18 30.5 18.5 27 19.5 24 22Z"/><ellipse class="lg-d" cx="17.6" cy="34.5" rx="5.3" ry="9" transform="rotate(-16 17.6 34.5)"/><ellipse class="lg-d" cx="30.4" cy="34.5" rx="5.3" ry="9" transform="rotate(16 30.4 34.5)"/><path d="M15.2 30C15.6 33 16 36 16.6 38.5M32.8 30C32.4 33 32 36 31.4 38.5" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".4"/></svg><span class="wm">খেজুরঘর<small>KhejurGhor</small></span></a><p style="margin:10px 0" data-t="tag"></p><p style="font-size:.9rem" data-t="fd"></p></div>
+<div><h4 data-t="ql"></h4><a href="#products" onclick="goCat('all')" data-t="all"></a><a href="#about" data-t="about"></a><a href="#faq" data-t="faq"></a><a href="#special" data-t="gift"></a></div>
+<div><h4 data-t="pc"></h4><a href="#products" onclick="goCat('d')" data-t="dates"></a><a href="#products" onclick="goCat('p')" data-t="made"></a></div>
+<div><h4 data-t="contact"></h4><a href="tel:+8801740160693">📞 01740160693</a><a id="wa" target="_blank" rel="noopener">WhatsApp: 01924899441</a><a id="fb" target="_blank" rel="noopener">Facebook</a><a data-t="addr"></a></div>
+</div><div class="copy">© 2026 খেজুরঘর (KhejurGhor). <span data-t="rights"></span></div></footer>
+
+<div id="fc"><div class="m"><a href="tel:+8801740160693">📞 <span data-t="callus"></span> · 01740160693</a><a id="fcw" target="_blank" rel="noopener">💬 WhatsApp · 01924899441</a></div><button class="main" onclick="document.getElementById('fc').classList.toggle('on')" aria-label="Contact">📞 <span data-t="cth"></span></button></div>
+<div class="ov" id="ov" onclick="closeAll()"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+<div class="dh"><h3 data-t="cart"></h3><button class="mx" style="position:static" onclick="closeAll()" aria-label="Close">✕</button></div>
+<div class="di" id="ci"></div>
+<div class="df" id="cf"></div>
+</aside>
+<div class="modal" id="modal"><div class="mb"><button class="mx" onclick="closeAll()" aria-label="Close">✕</button><div id="mc"></div></div></div>
+
+<script>
+// ===== EDITABLE CONFIG (demo values — replace before launch) =====
+const CFG={wa:'8801924899441',tel:'01740160693',fb:'',dhaka:60,outside:120,eta:['২–৩ দিন (ডেমো)','৩–৫ দিন (ডেমো)','2–3 days (demo)','3–5 days (demo)'],freeOver:3000,giftFee:50};
+const DSVG='<svg viewBox="0 0 120 80" aria-hidden="true"><g fill="#6b3f1f"><ellipse cx="38" cy="46" rx="22" ry="13" transform="rotate(-25 38 46)"/><ellipse cx="72" cy="40" rx="22" ry="13" transform="rotate(15 72 40)"/><ellipse cx="82" cy="58" rx="20" ry="12" transform="rotate(-10 82 58)"/></g><g stroke="#D6B47A" stroke-width="2" stroke-linecap="round" fill="none" opacity=".75"><path d="M24 40q14-6 28 2"/><path d="M60 34q14-4 26 4"/><path d="M70 54q12-4 24 2"/></g></svg>';
+// image: public/images/special/<slug>.jpg
+const SPECIAL=[['প্রিমিয়াম ডেটস কমবো','Premium Dates Combo',1800,'premium-combo'],['মিক্সড ডেটস বান্ডেল','Mixed Dates Bundle',1500,'mixed-bundle'],['ফ্যামিলি প্যাকেজ','Family Package',2400,'family-package'],['রমজান কালেকশন','Ramadan Collection',2200,'ramadan-collection'],['ঈদ গিফট কালেকশন','Eid Gift Collection',2000,'eid-gift'],['কর্পোরেট গিফট বক্স','Corporate Gift Box',2800,'corporate-gift-box']];
+const W_D=[['২৫০ গ্রাম','250g',1],['৫০০ গ্রাম','500g',1.9],['১ কেজি','1kg',3.6]];
+const W_P=[['২০০ গ্রাম','200g',1],['৪০০ গ্রাম','400g',1.9]];
+const W_G=[['ছোট','Small',1],['বড়','Large',1.8]];
+// slug, bn, en, base price (demo), category
+const RAW=[['ajwa','আজওয়া খেজুর','Ajwa Dates',900,'d'],['medjool','মেডজুল খেজুর','Medjool Dates',850,'d'],['sukkari','সুক্কারি খেজুর','Sukkari Dates',650,'d'],['mabroom','মাবরুম খেজুর','Mabroom Dates',700,'d'],['safawi','সাফাউই খেজুর','Safawi Dates',600,'d'],['kalmi','কালমি খেজুর','Kalmi Dates',550,'d'],['khudri','খুদরি খেজুর','Khudri Dates',500,'d'],['deglet-noor','ডেগলেট নুর খেজুর','Deglet Noor Dates',450,'d'],['barhi','বারহি খেজুর','Barhi Dates',600,'d'],['zahidi','জাহিদি খেজুর','Zahidi Dates',400,'d'],['halawy','হালাউই খেজুর','Halawy Dates',480,'d'],['kholas','খোলাস খেজুর','Kholas Dates',520,'d'],['anbara','আনবারা খেজুর','Anbara Dates',950,'d'],['mazafati','মাজাফাতি খেজুর','Mazafati Dates',500,'d'],['piarom','পিয়ারম খেজুর','Piarom Dates',800,'d'],['kabkab','কাবকাব খেজুর','Kabkab Dates',480,'d'],['dayri','দাইরি খেজুর','Dayri Dates',470,'d'],['thoory','থুরি খেজুর','Thoory Dates',520,'d'],['fard','ফার্ড খেজুর','Fard Dates',450,'d'],['lulu','লুলু খেজুর','Lulu Dates',490,'d'],
+['date-syrup','খেজুরের সিরাপ','Date Syrup',450,'p'],['date-molasses','খেজুরের মোলাসেস','Date Molasses',400,'p'],['date-paste','খেজুরের পেস্ট','Date Paste',350,'p'],['date-sugar','খেজুরের চিনি','Date Sugar',420,'p'],['date-jam','খেজুরের জ্যাম','Date Jam',380,'p'],['chocolate-dates','চকলেট কভারড খেজুর','Chocolate Covered Dates',600,'p'],['stuffed-dates','স্টাফড খেজুর','Stuffed Dates',650,'p'],['date-energy-balls','ডেটস এনার্জি বল','Date Energy Balls',480,'p'],['date-cookies','ডেটস কুকিজ','Date Cookies',350,'p'],['dates-gift-box','প্রিমিয়াম ডেটস গিফট বক্স','Premium Dates Gift Box',1500,'g']];
+const P=RAW.map((r,i)=>{const w=r[4]=='d'?W_D:r[4]=='g'?W_G:W_P;return{id:'KG-'+String(i+1).padStart(3,'0'),slug:r[0],bn:r[1],en:r[2],base:r[3],cat:r[4]=='d'?'d':'p',gift:r[4]=='g',w,disc:i%3==0?10:0,stock:[6,16].includes(i)?'out':[3,21].includes(i)?'low':'in',feat:[0,1,2,12,20,25,26,29].includes(i),
+img:'public/images/'+(r[4]=='d'?'dates/':'date-products/')+r[0]+'.jpg'}});
+const price=(p,wi)=>Math.round(p.base*p.w[wi][2]/5)*5;
+const sale=(p,wi)=>Math.round(price(p,wi)*(1-p.disc/100)/5)*5;
+
+// ===== TEXT =====
+const T={demo:['ডেমো মূল্য ও স্টক — লঞ্চের আগে পরিবর্তন করুন।','Demo prices and stock — replace before launch.'],
+home:['হোম','Home'],all:['সব পণ্য','All Products'],dates:['খেজুর কালেকশন','Dates Collection'],made:['খেজুরজাত পণ্য','Date-Made Products'],gift:['গিফট কালেকশন','Gift Collection'],about:['আমাদের কথা','About Us'],faq:['সচরাচর জিজ্ঞাসা','FAQ'],contact:['যোগাযোগ','Contact'],order:['অর্ডার করুন','Order Now'],
+h1:['খেজুরের স্বাদে, ঐতিহ্যের নতুন আয়োজন।','A new celebration of tradition, in the taste of dates.'],
+hp:['বিশ্বের বিভিন্ন প্রান্তের বাছাইকৃত খেজুর ও খেজুর থেকে তৈরি সুস্বাদু পণ্যের সমাহার এখন এক জায়গায়। আপনার পরিবারের জন্য বেছে নিন পছন্দের খেজুর।','Selected dates from different parts of the world and delicious date-made products, now in one place. Choose the dates your family loves.'],
+buy:['এখনই কিনুন','Buy Now'],seeall:['সব পণ্য দেখুন','View All Products'],tr1:['ক্যাশ অন ডেলিভারি','Cash on Delivery'],tr2:['বাছাইকৃত পণ্য','Carefully selected'],tr3:['কাস্টমার সাপোর্ট','Customer support'],
+catH:['আমাদের কালেকশন','Our Collections'],catS:['দুটি ভাগে সাজানো — খেজুরের জাত এবং খেজুরজাত পণ্য।','Two parts: date varieties and date-made products.'],
+c1:['প্রিমিয়াম খেজুর কালেকশন','Premium Dates Collection'],c1d:['২০টি জাতের খেজুর','20 date varieties'],c2:['খেজুরজাত পণ্য','Date-Made Products'],c2d:['সিরাপ, জ্যাম, কুকিজ ও আরও','Syrup, jam, cookies and more'],
+featH:['জনপ্রিয় পণ্য','Popular Products'],featS:['আমাদের সংগ্রহ থেকে বাছাই করা কয়েকটি।','A few picks from our catalog.'],
+search:['পণ্য খুঁজুন…','Search products…'],more:['আরও দেখুন','Load more'],
+whyH:['কেন খেজুরঘর?','Why KhejurGhor?'],whyS:['আমরা শুধু সেই কথাই বলি যা যাচাই করা যায়।','We only say what can be verified.'],
+spH:['বিশেষ কালেকশন','Special Collections'],spS:['আপনার পছন্দের কম্বো বেছে নিন।','Pick the combo that suits you.'],spo:['অর্ডার করুন','Order this'],
+infH:['খেজুর সম্পর্কে সাধারণ তথ্য','General Date Information'],infS:['ব্যবহার, স্বাদ, টেক্সচার ও সংরক্ষণ।','Uses, flavour, texture and storage.'],
+revH:['ক্রেতাদের মতামত','Customer Reviews'],revS:['আমাদের গ্রাহকরা যা বলছেন।','What our customers are saying.'],
+delH:['ডেলিভারি তথ্য','Delivery Information'],delS:['চার্জ ও সময় পরিবর্তনযোগ্য (ডেমো)।','Charges and times are editable (demo).'],zone:['এলাকা','Area'],chg:['চার্জ','Charge'],eta:['আনুমানিক সময়','Estimated time'],cod:['পেমেন্ট: ক্যাশ অন ডেলিভারি।','Payment: Cash on Delivery.'],
+tag:['প্রকৃতির মিষ্টি, ঐতিহ্যের ছোঁয়া।','Natural Sweetness, Pure Tradition.'],fd:['খেজুর ও খেজুরজাত পণ্যের অনলাইন স্টোর।','An online store for dates and date-made products.'],ql:['দ্রুত লিংক','Quick Links'],pc:['ক্যাটাগরি','Categories'],addr:['ঠিকানা: ঢাকা, বাংলাদেশ','Address: Dhaka, Bangladesh'],benH:['কেন মানুষ খেজুর খাবে?','Why do people eat dates?'],benN:['এটি সাধারণ পুষ্টি তথ্য, চিকিৎসা পরামর্শ নয়। ডায়াবেটিস বা বিশেষ স্বাস্থ্য সমস্যা থাকলে খাদ্যতালিকায় খেজুর রাখার আগে চিকিৎসকের পরামর্শ নিন।','This is general nutrition information, not medical advice. If you have diabetes or a health condition, check with your doctor before adding dates to your diet.'],callus:['কল করুন','Call us'],cth:['যোগাযোগ করুন','Contact us'],rights:['সর্বস্বত্ব সংরক্ষিত।','All rights reserved.'],
+cart:['আপনার কার্ট','Your Cart'],add:['কার্টে যোগ করুন','Add to Cart'],bnow:['এখনই কিনুন','Buy Now'],in:['স্টকে আছে','In stock'],low:['অল্প স্টক','Low stock'],out:['স্টক শেষ','Out of stock'],
+sub:['সাবটোটাল','Subtotal'],dis:['ডিসকাউন্ট','Discount'],dc:['ডেলিভারি চার্জ','Delivery charge'],gf:['গিফট প্যাকেজিং','Gift wrapping'],tot:['মোট','Total'],zsel:['ডেলিভারি এলাকা','Delivery area'],zd:['ঢাকার ভেতরে','Inside Dhaka'],zo:['ঢাকার বাইরে','Outside Dhaka'],gopt:['এটি উপহার (গিফট প্যাকেজিং)','This is a gift (gift wrapping)'],chk:['চেকআউট','Checkout'],empty:['কার্ট খালি। পণ্য যোগ করুন।','Your cart is empty. Add a product.'],rm:['সরান','Remove'],free:['ফ্রি','Free'],
+dsc:['বিবরণ','Description'],orig:['উৎস','Origin'],taste:['স্বাদ ও টেক্সচার','Taste & texture'],stor:['সংরক্ষণ','Storage'],wt:['ওজন','Weight'],qty:['পরিমাণ','Quantity'],rel:['সম্পর্কিত পণ্য','Related products'],tbc:['যাচাই করে যোগ করুন (এডিটযোগ্য)','To be confirmed (editable)'],stt:['ঠান্ডা, শুকনো জায়গায় বায়ুরোধী পাত্রে রাখুন। প্যাকেটের নির্দেশনা অনুসরণ করুন।','Keep in an airtight container in a cool, dry place. Follow pack instructions.'],rt:['রেটিং শীঘ্রই','Ratings coming soon'],
+name:['আপনার নাম','Your name'],mob:['মোবাইল নম্বর','Mobile number'],adr:['পূর্ণ ঠিকানা','Full address'],dist:['জেলা','District'],pay:['পেমেন্ট মেথড','Payment method'],codl:['ক্যাশ অন ডেলিভারি (ডেমো)','Cash on Delivery (demo)'],place:['অর্ডার কনফার্ম করুন','Place order'],e1:['নাম লিখুন','Enter your name'],e2:['সঠিক মোবাইল নম্বর দিন (01XXXXXXXXX)','Enter a valid mobile number (01XXXXXXXXX)'],e3:['ঠিকানা লিখুন (কমপক্ষে ১০ অক্ষর)','Enter address (min 10 characters)'],e4:['জেলা লিখুন','Enter district'],
+okH:['অর্ডার গ্রহণ করা হয়েছে (ডেমো)','Order received (demo)'],okP:['এটি ডেমো কনফার্মেশন — কোনো আসল অর্ডার বা পেমেন্ট হয়নি।','This is a demo confirmation — no real order or payment was made.'],wam:['WhatsApp-এ জানান','Message on WhatsApp'],
+fpA:['সব দাম','All prices'],fp1:['৳৫০০ এর নিচে','Under ৳500'],fp2:['৳৫০০–১০০০','৳500–1000'],fp3:['৳১০০০–২০০০','৳1000–2000'],fp4:['৳২০০০+','৳2000+'],fwA:['সব ওজন','All weights'],s0:['ডিফল্ট সাজানো','Default order'],s1:['দাম: কম থেকে বেশি','Price: low to high'],s2:['দাম: বেশি থেকে কম','Price: high to low'],s3:['নাম: A–Z','Name: A–Z']};
+const BEN=[['প্রাকৃতিক মিষ্টতা','Natural sweetness','খেজুরে প্রাকৃতিক শর্করা আছে, তাই মিষ্টি খাওয়ার ইচ্ছা মেটাতে জনপ্রিয় একটি বিকল্প।','Dates contain natural sugars, a popular choice when you want something sweet.'],['খাদ্যআঁশের উৎস','A source of dietary fibre','খেজুর খাদ্যআঁশের একটি উৎস, যা সুষম খাদ্যতালিকার অংশ হতে পারে।','Dates are a source of dietary fibre and can be part of a balanced diet.'],['খনিজের উৎস','A source of minerals','খেজুরে পটাসিয়ামসহ কিছু খনিজ উপাদান থাকে।','Dates contain some minerals, including potassium.'],['দ্রুত শক্তির স্ন্যাক','Quick-energy snack','কার্বোহাইড্রেট থাকায় সকাল, ভ্রমণ বা কাজের ফাঁকে হালকা স্ন্যাক হিসেবে সুবিধাজনক।','Rich in carbohydrates, handy as a light snack in the morning, while travelling or at work.'],['ইফতার ও ঐতিহ্য','Iftar & tradition','রমজানে খেজুর দিয়ে ইফতার শুরু করা আমাদের দীর্ঘদিনের ঐতিহ্য।','Opening the fast with dates in Ramadan is a long-standing tradition.'],['বহুমুখী ব্যবহার','Versatile in the kitchen','সরাসরি খাওয়া ছাড়াও স্মুদি, মিষ্টান্ন ও রান্নায় খেজুর ব্যবহার করা যায়।','Eat them as they are, or use in smoothies, desserts and cooking.']];
+const WHY=[['বিভিন্ন ধরনের পণ্য','Wide product variety','২০টি খেজুরের জাত ও ১০টি খেজুরজাত পণ্য।','20 date varieties and 10 date-made products.'],['স্বচ্ছ মূল্য','Transparent pricing','প্রতিটি ওজনের দাম পণ্যের পাতায় স্পষ্ট দেখানো।','The price of every weight shown clearly.'],['যত্নে বাছাই','Carefully selected','প্রতিটি পণ্য বাছাই করে তালিকাভুক্ত করা।','Every product is chosen before it is listed.'],['আকর্ষণীয় প্যাকেজিং','Attractive packaging','উপহারের জন্য গিফট প্যাকেজিং অপশন আছে।','A gift wrapping option is available.'],['সহজ অর্ডার','Convenient ordering','কার্ট, চেকআউট ও ক্যাশ অন ডেলিভারি।','Cart, checkout and Cash on Delivery.'],['কাস্টমার সাপোর্ট','Customer support','প্রশ্ন থাকলে WhatsApp-এ যোগাযোগ করুন।','Questions? Reach us on WhatsApp.']];
+const INF=[['ব্যবহার','Uses','সরাসরি খাওয়া, মিষ্টান্ন, স্মুদি ও রান্নায় খেজুর ব্যবহার করা যায়।','Dates can be eaten as they are or used in desserts, smoothies and cooking.'],['স্বাদ ও টেক্সচার','Flavour & texture','জাতভেদে স্বাদ ও নরমত্ব ভিন্ন হয়। প্রতিটি পণ্যের বিবরণ আপনি এডিট করতে পারবেন।','Flavour and softness differ by variety. You can edit each product description.'],['সংরক্ষণ','Storage','বায়ুরোধী পাত্রে ঠান্ডা ও শুকনো জায়গায় রাখুন। প্যাকেটের নির্দেশনা দেখুন।','Store airtight in a cool, dry place. Check the pack instructions.']];
+// SAMPLE REVIEWS — replace with genuine customer reviews before launch
+const REV=[['প্যাকেজিং খুব সুন্দর ছিল, উপহার হিসেবে দিয়ে সবাই খুশি হয়েছে। ডেলিভারিও সময়মতো পেয়েছি।','The packaging was lovely and everyone was happy with it as a gift. Delivery arrived on time too.','রাফিয়া ইসলাম, ঢাকা','Rafia Islam, Dhaka'],['খেজুরগুলো নরম আর তাজা ছিল। অর্ডার করা থেকে হাতে পাওয়া পর্যন্ত সবকিছু সহজ লেগেছে।','The dates were soft and fresh. Ordering was easy from start to finish.','তানভীর আহমেদ, ঢাকা','Tanvir Ahmed, Dhaka'],['ফ্যামিলি প্যাকেজটা নিয়েছিলাম, পরিবারের সবার পছন্দ হয়েছে। দাম ও ওজন স্পষ্ট দেওয়া থাকায় বেছে নেওয়া সহজ হয়েছে।','Got the family package and everyone liked it. Clear pricing and weights made choosing easy.','মেহজাবিন সুলতানা, গাজীপুর','Mehjabin Sultana, Gazipur'],['খেজুরের সিরাপটা পরোটা আর দইয়ের সাথে দারুণ লেগেছে। আবার অর্ডার করব।','The date syrup went great with flatbread and yoghurt. I will order again.','সাকিব হোসেন, চট্টগ্রাম','Sakib Hossain, Chattogram'],['অফিসের জন্য কর্পোরেট গিফট বক্স নিয়েছিলাম। সুন্দর উপস্থাপনা, সবাই প্রশংসা করেছে।','Ordered corporate gift boxes for the office. Beautifully presented and everyone complimented them.','নুসরাত জাহান, ঢাকা','Nusrat Jahan, Dhaka'],['WhatsApp-এ প্রশ্ন করলে দ্রুত উত্তর পেয়েছি। কাস্টমার সাপোর্ট ভালো লেগেছে।','I got quick replies on WhatsApp. Good customer support.','আরিফুল ইসলাম, সিলেট','Ariful Islam, Sylhet']];
+const FAQ=[['কোন কোন ধরনের খেজুর পাওয়া যায়?','Which kinds of dates are available?','আজওয়া, মেডজুলসহ ২০টি জাত ও ১০টি খেজুরজাত পণ্য তালিকাভুক্ত। স্টক পণ্যের পাতায় দেখুন।','20 varieties including Ajwa and Medjool, plus 10 date-made products are listed. Check stock on each product page.'],['আজওয়া ও মেডজুলের পার্থক্য কী?','What is the difference between Ajwa and Medjool?','দুটি ভিন্ন জাত; আকার, স্বাদ ও টেক্সচারে ভিন্নতা থাকে। বিস্তারিত পণ্যের পাতায় যোগ করুন।','They are different varieties with differences in size, flavour and texture. Add details on the product pages.'],['কোন ওজনের প্যাকেজ পাওয়া যায়?','Which pack sizes are available?','খেজুর ২৫০ গ্রাম, ৫০০ গ্রাম ও ১ কেজি; অন্য পণ্য ২০০/৪০০ গ্রাম (ডেমো, এডিটযোগ্য)।','Dates: 250g, 500g, 1kg; other products 200/400g (demo, editable).'],['খেজুর কীভাবে সংরক্ষণ করব?','How should I store dates?','বায়ুরোধী পাত্রে ঠান্ডা, শুকনো জায়গায় রাখুন।','Keep in an airtight container in a cool, dry place.'],['খেজুরের সিরাপ কীভাবে ব্যবহার করব?','How do I use date syrup?','পরোটা, প্যানকেক, দই বা মিষ্টান্নে মিষ্টি হিসেবে ব্যবহার করা যায়।','Use it as a sweetener on flatbread, pancakes, yoghurt or desserts.'],['ডেলিভারি কত দিনে হয়?','How long does delivery take?','ঢাকায় আনুমানিক ২–৩ দিন, ঢাকার বাইরে ৩–৫ দিন (ডেমো)।','About 2–3 days in Dhaka, 3–5 days outside (demo).'],['পেমেন্ট কীভাবে করব?','How do I pay?','এখন ক্যাশ অন ডেলিভারি।','Cash on Delivery for now.'],['Bulk order করা যাবে কি?','Can I place a bulk order?','হ্যাঁ — WhatsApp-এ যোগাযোগ করুন।','Yes — contact us on WhatsApp.']];
+
+// ===== STATE =====
+let L=0,cat='all',page=1,cur=null,cart=[],zone='d',gift=false;
+try{cart=JSON.parse(localStorage.getItem('kg_cart')||'[]');zone=localStorage.getItem('kg_zone')||'d';L=+localStorage.getItem('kg_lang')||0}catch(e){}
+const t=k=>T[k][L],pn=p=>L?p.en:p.bn,$=id=>document.getElementById(id);
+const fmt=n=>'৳'+n.toLocaleString(L?'en-US':'bn-BD');
+const save=()=>{try{localStorage.setItem('kg_cart',JSON.stringify(cart));localStorage.setItem('kg_zone',zone)}catch(e){}};
+const ph=(p,src,n)=>`<div class="ph" data-img="${src}"><div><b>${(p.en[0])}</b><small>${src}</small></div></div>`;
+function hydrate(root){root.querySelectorAll('[data-img]:not([data-done])').forEach(el=>{el.dataset.done=1;const s=el.dataset.img;if(!el.children.length)el.innerHTML='<div><b>🌴</b><small>'+s+'</small></div>';const im=new Image();im.alt='';im.onload=()=>el.appendChild(im);im.src=s})}
+
+// ===== RENDER =====
+function applyLang(){document.documentElement.lang=L?'en':'bn';$('lang').textContent=L?'বাং':'EN';
+document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
+document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
+const sel=(id,arr)=>{const el=$(id),v=el.value;el.innerHTML=arr.map(a=>`<option value="${a[0]}">${a[1]}</option>`).join('');el.value=v||arr[0][0]};
+sel('fp',[['',t('fpA')],['1',t('fp1')],['2',t('fp2')],['3',t('fp3')],['4',t('fp4')]]);
+sel('fw',[['',t('fwA')],...['250g','500g','1kg','200g','400g'].map(w=>[w,w])]);
+sel('so',[['0',t('s0')],['1',t('s1')],['2',t('s2')],['3',t('s3')]]);
+$('tabs').innerHTML=[['all','all'],['d','dates'],['p','made']].map(a=>`<button class="tab ${cat==a[0]?'on':''}" onclick="goCat('${a[0]}')">${t(a[1])}</button>`).join('');
+$('ben').innerHTML=BEN.map(w=>`<div><h3>${w[L]}</h3><p>${w[2+L]}</p></div>`).join('');
+$('why').innerHTML=WHY.map(w=>`<div><h3>${w[L]}</h3><p>${w[2+L]}</p></div>`).join('');
+$('inf').innerHTML=INF.map(w=>`<div><h3>${w[L]}</h3><p>${w[2+L]}</p></div>`).join('');
+$('rev').innerHTML=REV.map(w=>`<blockquote><span class="stars">★★★★★</span><p>${w[L]}</p><cite>${w[2+L]}</cite></blockquote>`).join('');
+$('faqs').innerHTML=FAQ.map(f=>`<details><summary>${f[L]}</summary><p>${f[2+L]}</p></details>`).join('');
+$('deltb').innerHTML=`<tr><td>${t('zd')}</td><td>${fmt(CFG.dhaka)}</td><td>${CFG.eta[L*2]}</td></tr><tr><td>${t('zo')}</td><td>${fmt(CFG.outside)}</td><td>${CFG.eta[L*2+1]}</td></tr>`;
+$('sp').innerHTML=SPECIAL.map(s=>`<div class="sp"><div class="ph spimg" data-img="public/images/special/${s[3]}.jpg">${DSVG}</div><h3>${s[L]}</h3><div class="pr">${fmt(s[2])} <small style="font-weight:400">(${L?'demo':'ডেমো'})</small></div><a class="btn alt" target="_blank" rel="noopener" href="${wa(s[L]+' — '+fmt(s[2]))}">${t('spo')}</a></div>`).join('');
+$('wa').href=wa('');$('fcw').href=wa('');$('fb').href=CFG.fb||'#';$('fb').title=CFG.fb?'':'Add your Facebook page link in CFG.fb';
+$('featured').innerHTML=P.filter(p=>p.feat).map(card).join('');
+renderAll();renderCart();hydrate(document.body)}
+const wa=m=>`https://wa.me/${CFG.wa}?text=${encodeURIComponent('খেজুরঘর: '+m)}`;
+function card(p){const wi=0,pr=price(p,wi),sp=sale(p,wi);return`<article class="card">${p.disc?`<span class="tag">-${p.disc}%</span>`:''}<div class="ph" data-img="${p.img}" onclick="openP('${p.id}')"></div><div class="bd"><h3 onclick="openP('${p.id}')">${pn(p)}</h3><div class="en">${L?p.bn:p.en} · ${p.w[wi][L]}</div><div class="pr">${p.disc?fmt(sp)+'<s>'+fmt(pr)+'</s>':fmt(pr)}</div><div class="st ${p.stock}">${t(p.stock)}</div><div class="row"><button class="btn alt" ${p.stock=='out'?'disabled':''} onclick="addC('${p.id}',0,1)">${t('add')}</button></div></div></article>`}
+function renderAll(){const q=$('q').value.trim().toLowerCase(),fp=$('fp').value,fw=$('fw').value,so=$('so').value;
+let r=P.filter(p=>(cat=='all'||p.cat==cat)&&(!q||(p.bn+p.en).toLowerCase().includes(q))&&(!fw||p.w.some(w=>w[1]==fw))&&(!fp||inR(sale(p,0),+fp)));
+if(so=='1')r.sort((a,b)=>sale(a,0)-sale(b,0));if(so=='2')r.sort((a,b)=>sale(b,0)-sale(a,0));if(so=='3')r.sort((a,b)=>a.en.localeCompare(b.en));
+const n=page*12;$('grid').innerHTML=r.slice(0,n).map(card).join('')||`<p>—</p>`;
+$('count').textContent=(L?`Showing ${Math.min(n,r.length)} of ${r.length} products`:`${r.length}টি পণ্যের মধ্যে ${Math.min(n,r.length).toLocaleString('bn-BD')}টি দেখানো হচ্ছে`);
+$('more').style.display=n<r.length?'':'none';hydrate($('grid'));
+$('tabs').querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('on',['all','d','p'][i]==cat))}
+const inR=(v,k)=>[[0,1e9],[0,500],[500,1000],[1000,2000],[2000,1e9]][k].reduce((a,b)=>v>=a&&v<=b?true:false);
+function orderNow(){if(cart.length)openCart();else{goCat('all');$('products').scrollIntoView({behavior:'smooth'})}}
+function goCat(c){cat=c;page=1;renderAll();document.getElementById('nav').classList.remove('on')}
+function setLang(){L=1-L;try{localStorage.setItem('kg_lang',L)}catch(e){}applyLang();if(cur&&$('modal').classList.contains('on'))openP(cur.p.id,cur.wi,cur.q)}
+
+// ===== PRODUCT MODAL =====
+function openP(id,wi=0,q=1){const p=P.find(x=>x.id==id);cur={p,wi,q};closeAll(true);
+const g=[p.img,p.img.replace('.jpg','-2.jpg'),p.img.replace('.jpg','-3.jpg')];
+const pr=price(p,wi),sp=sale(p,wi);
+$('mc').innerHTML=`<div class="pd"><div><div class="ph main" id="gm" data-img="${g[0]}"></div><div class="th">${g.map((s,i)=>`<div class="ph ${i?'':'on'}" data-img="${s}" onclick="gal(this,'${s}')"></div>`).join('')}</div></div>
+<div><small>${p.id} · ${t(p.cat=='d'?'dates':'made')}</small><h2>${pn(p)}</h2><div class="en">${L?p.bn:p.en}</div>
+<div class="pr" style="font-size:1.5rem;margin:8px 0">${p.disc?fmt(sp)+'<s>'+fmt(pr)+'</s>':fmt(pr)} <small style="font-weight:400;font-size:.75rem">(${L?'demo':'ডেমো'})</small></div>
+<div class="st ${p.stock}">${t(p.stock)}</div>
+<b>${t('wt')}</b><div class="wo">${p.w.map((w,i)=>`<button class="${i==wi?'on':''}" onclick="openP('${p.id}',${i},cur.q)">${w[L]}</button>`).join('')}</div>
+<b>${t('qty')}</b><div class="q"><button onclick="cur.q=Math.max(1,cur.q-1);$('mq').textContent=cur.q">−</button><span id="mq">${q}</span><button onclick="cur.q++;$('mq').textContent=cur.q">+</button></div>
+<div class="info"><p><b>${t('dsc')}:</b> ${L?'Selected product from the KhejurGhor range. (Edit this description.)':'খেজুরঘরের বাছাইকৃত পণ্য। (এই বিবরণ এডিট করুন।)'}</p><p><b>${t('orig')}:</b> ${t('tbc')}</p><p><b>${t('taste')}:</b> ${t('tbc')}</p><p><b>${t('stor')}:</b> ${t('stt')}</p></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" ${p.stock=='out'?'disabled':''} onclick="addC('${p.id}',cur.wi,cur.q)">${t('add')}</button><button class="btn alt" ${p.stock=='out'?'disabled':''} onclick="addC('${p.id}',cur.wi,cur.q,1)">${t('bnow')}</button></div></div></div>
+<h3 style="margin:26px 0 12px">${t('rel')}</h3><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">${P.filter(x=>x.cat==p.cat&&x.id!=p.id).slice(0,4).map(x=>`<div class="card" onclick="openP('${x.id}')" style="cursor:pointer"><div class="ph" data-img="${x.img}" style="aspect-ratio:1"></div><div class="bd"><h3 style="font-size:.9rem">${pn(x)}</h3></div></div>`).join('')}</div>`;
+$('modal').classList.add('on');hydrate($('mc'))}
+function gal(el,s){document.querySelectorAll('.th .ph').forEach(e=>e.classList.remove('on'));el.classList.add('on');const m=$('gm');m.innerHTML='<div><b>🌴</b><small>'+s+'</small></div>';m.dataset.done=1;const im=new Image();im.onload=()=>m.appendChild(im);im.src=s}
+
+// ===== CART =====
+function addC(id,wi,q,buy){const k=cart.find(c=>c.id==id&&c.wi==wi);k?k.q+=q:cart.push({id,wi,q});save();renderCart();buy?(closeAll(),openCart(),setTimeout(checkout,50)):(closeAll(true),openCart())}
+function chg(i,d){cart[i].q+=d;if(cart[i].q<1)cart.splice(i,1);save();renderCart()}
+function del(i){cart.splice(i,1);save();renderCart()}
+function totals(){let list=0,sub=0;cart.forEach(c=>{const p=P.find(x=>x.id==c.id);list+=price(p,c.wi)*c.q;sub+=sale(p,c.wi)*c.q});const dc=!cart.length?0:sub>=CFG.freeOver?0:zone=='d'?CFG.dhaka:CFG.outside;const gf=gift&&cart.length?CFG.giftFee:0;return{list,sub,dis:list-sub,dc,gf,tot:sub+dc+gf}}
+function renderCart(){const cn=cart.reduce((a,c)=>a+c.q,0);$('cc').textContent=cn;$('obc').textContent=cn?'('+cn.toLocaleString(L?'en-US':'bn-BD')+')':'';
+$('ci').innerHTML=cart.length?cart.map((c,i)=>{const p=P.find(x=>x.id==c.id);return`<div class="ci"><div class="ph" data-img="${p.img}"></div><div><b>${pn(p)}</b><div>${p.w[c.wi][L]} · ${fmt(sale(p,c.wi))}</div><div class="q"><button onclick="chg(${i},-1)" aria-label="-">−</button><span>${c.q}</span><button onclick="chg(${i},1)" aria-label="+">+</button></div></div><div style="text-align:right"><b>${fmt(sale(p,c.wi)*c.q)}</b><br><button class="x" onclick="del(${i})">${t('rm')}</button></div></div>`}).join(''):`<p style="padding:20px 0">${t('empty')}</p>`;
+const x=totals();
+$('cf').innerHTML=`<label>${t('zsel')}<select onchange="zone=this.value;save();renderCart()"><option value="d" ${zone=='d'?'selected':''}>${t('zd')} (${fmt(CFG.dhaka)})</option><option value="o" ${zone=='o'?'selected':''}>${t('zo')} (${fmt(CFG.outside)})</option></select></label>
+<label style="display:flex;gap:8px;margin:4px 0 8px"><input type="checkbox" ${gift?'checked':''} onchange="gift=this.checked;renderCart()"> ${t('gopt')} (+${fmt(CFG.giftFee)})</label>
+<div class="l"><span>${t('sub')}</span><span>${fmt(x.list)}</span></div><div class="l"><span>${t('dis')}</span><span>−${fmt(x.dis)}</span></div><div class="l"><span>${t('dc')}</span><span>${x.dc?fmt(x.dc):t('free')}</span></div>${x.gf?`<div class="l"><span>${t('gf')}</span><span>${fmt(x.gf)}</span></div>`:''}<div class="l t"><span>${t('tot')}</span><span>${fmt(x.tot)}</span></div>
+<button class="btn" style="width:100%;margin-top:10px" ${cart.length?'':'disabled'} onclick="checkout()">${t('chk')}</button>`;hydrate($('ci'))}
+function openCart(){$('ov').classList.add('on');$('drawer').classList.add('on')}
+function closeAll(keep){$('drawer').classList.remove('on');$('modal').classList.remove('on');if(!keep)$('ov').classList.remove('on');else $('ov').classList.add('on')}
+document.addEventListener('keydown',e=>{if(e.key=='Escape')closeAll()});
+
+// ===== CHECKOUT =====
+function checkout(){if(!cart.length)return;const x=totals();$('drawer').classList.remove('on');$('ov').classList.add('on');
+$('mc').innerHTML=`<h2>${t('chk')}</h2><div class="pd"><form class="f" id="cf2" novalidate onsubmit="place(event)">
+<label>${t('name')}<input id="fn"><span class="er" id="e1"></span></label><label>${t('mob')}<input id="fm" inputmode="numeric" placeholder="01XXXXXXXXX"><span class="er" id="e2"></span></label>
+<label>${t('adr')}<textarea id="fa" rows="2"></textarea><span class="er" id="e3"></span></label><label>${t('dist')}<input id="fd2" list="dl"><span class="er" id="e4"></span></label>
+<datalist id="dl"><option>Dhaka</option><option>Chattogram</option><option>Sylhet</option><option>Rajshahi</option><option>Khulna</option><option>Barishal</option><option>Rangpur</option><option>Mymensingh</option><option>Gazipur</option><option>Narayanganj</option></datalist>
+<label>${t('pay')}<select><option>${t('codl')}</option></select></label><button class="btn">${t('place')}</button></form>
+<div class="info" style="margin:0;align-self:start">${cart.map(c=>{const p=P.find(y=>y.id==c.id);return`<p>${pn(p)} (${p.w[c.wi][L]}) × ${c.q} — ${fmt(sale(p,c.wi)*c.q)}</p>`}).join('')}<hr style="margin:8px 0;border:0;border-top:1px dashed #cdb894"><p>${t('sub')}: ${fmt(x.sub)}</p><p>${t('dc')}: ${x.dc?fmt(x.dc):t('free')}</p>${x.gf?`<p>${t('gf')}: ${fmt(x.gf)}</p>`:''}<p><b>${t('tot')}: ${fmt(x.tot)}</b></p></div></div>`;$('modal').classList.add('on')}
+function place(e){e.preventDefault();const v=id=>$(id).value.trim();let ok=true;
+const chk=(c,er,k)=>{$(er).textContent=c?'':t(k);if(!c)ok=false};
+chk(v('fn').length>1,'e1','e1');chk(/^(\+?88)?01[3-9]\d{8}$/.test(v('fm')),'e2','e2');chk(v('fa').length>=10,'e3','e3');chk(v('fd2').length>1,'e4','e4');if(!ok)return;
+zone=/dhaka|ঢাকা/i.test(v('fd2'))?'d':'o';const x=totals(),id='KG'+Date.now().toString().slice(-6);
+$('mc').innerHTML=`<div class="ok"><h2>${t('okH')}</h2><p><b>${id}</b></p><p style="margin:8px 0">${t('okP')}</p><p><b>${t('tot')}: ${fmt(x.tot)}</b></p><a class="btn" style="display:inline-block;margin-top:14px" target="_blank" rel="noopener" href="${wa(id+' · '+v('fn')+' · '+v('fm')+' · '+fmt(x.tot))}">${t('wam')}</a></div>`;
+cart=[];gift=false;save();renderCart()}
+applyLang();
+(function(){const hd=document.querySelector('header');addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>8),{passive:true});
+const hero=document.querySelector('.hero');hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+if(!('IntersectionObserver' in window))return;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll('section h2').forEach(h=>{h.classList.add('pop');io.observe(h)})})();
+</script>
+</body>
+</html>
