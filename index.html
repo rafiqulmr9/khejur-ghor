@@ -147,7 +147,7 @@ nav a:hover::after{left:16%;width:68%}
 @media(max-width:860px){.ob{display:block;padding:0 12px 10px}.ob .btn{width:100%;padding:11px;font-size:1rem}.nav{gap:6px}.nav .ic{padding:6px 9px}.mark{width:38px;height:38px}.wm{font-size:1.1rem}html{scroll-padding-top:128px}}
 @media(max-width:860px){nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--off);flex-direction:column;padding:16px 20px;border-bottom:1px solid var(--cream)}nav.on{display:flex}#burger{display:block;margin-left:auto}.nav .ic.cartb{margin-left:0}.hero .wrap,.pd,footer .wrap,.cats{grid-template-columns:1fr}.heroimg{max-width:340px;margin:auto}.hide-s{display:none}}
 @media(prefers-reduced-motion:reduce){.hero h1{animation:none}.pop:not(.in){opacity:1}.pop.in{animation:none}.hero::before{display:none}*{transition:none!important;scroll-behavior:auto!important}}
-</style>
+.admin-top-link{white-space:nowrap;padding:9px 13px;font-size:.88rem;background:#263b2d;color:#fff;border:1px solid #d6b47a;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.admin-top-link:hover{background:#38543f;color:#fff}@media(max-width:860px){.admin-top-link{font-size:.78rem;padding:8px 9px;margin-left:auto}.nav{flex-wrap:wrap}}\n</style>
 </head>
 <body id="top">
 <header><div class="wrap nav">
@@ -155,6 +155,7 @@ nav a:hover::after{left:16%;width:68%}
 <nav id="nav">
 <a href="#top" data-t="home"></a><a href="#products" onclick="goCat('all')" data-t="all"></a><a href="#products" onclick="goCat('d')" data-t="dates"></a><a href="#products" onclick="goCat('p')" data-t="made"></a><a href="#special" data-t="gift"></a><a href="#about" data-t="about"></a><a href="#faq" data-t="faq"></a><a href="#contact" data-t="contact"></a>
 </nav>
+<a class="btn admin-top-link" href="admin.html" title="Open Admin Panel">⚙ Admin Panel</a>
 <button class="ic" aria-label="Search" onclick="goCat(cat);document.getElementById('q').focus()">🔍</button>
 <button class="ic" id="lang" onclick="setLang()" aria-label="Language">EN</button>
 <button class="ic cartb" onclick="openCart()" aria-label="Cart">🛒<b id="cc">0</b></button>
@@ -248,7 +249,7 @@ const W_G=[['ছোট','Small',1],['বড়','Large',1.8]];
 // slug, bn, en, base price (demo), category
 const RAW=[['ajwa','আজওয়া খেজুর','Ajwa Dates',900,'d'],['medjool','মেডজুল খেজুর','Medjool Dates',850,'d'],['sukkari','সুক্কারি খেজুর','Sukkari Dates',650,'d'],['mabroom','মাবরুম খেজুর','Mabroom Dates',700,'d'],['safawi','সাফাউই খেজুর','Safawi Dates',600,'d'],['kalmi','কালমি খেজুর','Kalmi Dates',550,'d'],['khudri','খুদরি খেজুর','Khudri Dates',500,'d'],['deglet-noor','ডেগলেট নুর খেজুর','Deglet Noor Dates',450,'d'],['barhi','বারহি খেজুর','Barhi Dates',600,'d'],['zahidi','জাহিদি খেজুর','Zahidi Dates',400,'d'],['halawy','হালাউই খেজুর','Halawy Dates',480,'d'],['kholas','খোলাস খেজুর','Kholas Dates',520,'d'],['anbara','আনবারা খেজুর','Anbara Dates',950,'d'],['mazafati','মাজাফাতি খেজুর','Mazafati Dates',500,'d'],['piarom','পিয়ারম খেজুর','Piarom Dates',800,'d'],['kabkab','কাবকাব খেজুর','Kabkab Dates',480,'d'],['dayri','দাইরি খেজুর','Dayri Dates',470,'d'],['thoory','থুরি খেজুর','Thoory Dates',520,'d'],['fard','ফার্ড খেজুর','Fard Dates',450,'d'],['lulu','লুলু খেজুর','Lulu Dates',490,'d'],
 ['date-syrup','খেজুরের সিরাপ','Date Syrup',450,'p'],['date-molasses','খেজুরের মোলাসেস','Date Molasses',400,'p'],['date-paste','খেজুরের পেস্ট','Date Paste',350,'p'],['date-sugar','খেজুরের চিনি','Date Sugar',420,'p'],['date-jam','খেজুরের জ্যাম','Date Jam',380,'p'],['chocolate-dates','চকলেট কভারড খেজুর','Chocolate Covered Dates',600,'p'],['stuffed-dates','স্টাফড খেজুর','Stuffed Dates',650,'p'],['date-energy-balls','ডেটস এনার্জি বল','Date Energy Balls',480,'p'],['date-cookies','ডেটস কুকিজ','Date Cookies',350,'p'],['dates-gift-box','প্রিমিয়াম ডেটস গিফট বক্স','Premium Dates Gift Box',1500,'g']];
-const P=RAW.map((r,i)=>{const w=r[4]=='d'?W_D:r[4]=='g'?W_G:W_P;return{id:'KG-'+String(i+1).padStart(3,'0'),slug:r[0],bn:r[1],en:r[2],base:r[3],cat:r[4]=='d'?'d':'p',gift:r[4]=='g',w,disc:i%3==0?10:0,stock:[6,16].includes(i)?'out':[3,21].includes(i)?'low':'in',feat:[0,1,2,12,20,25,26,29].includes(i),
+let P=RAW.map((r,i)=>{const w=r[4]=='d'?W_D:r[4]=='g'?W_G:W_P;return{id:'KG-'+String(i+1).padStart(3,'0'),slug:r[0],bn:r[1],en:r[2],base:r[3],cat:r[4]=='d'?'d':'p',gift:r[4]=='g',w,disc:i%3==0?10:0,stock:[6,16].includes(i)?'out':[3,21].includes(i)?'low':'in',feat:[0,1,2,12,20,25,26,29].includes(i),
 img:'public/images/'+(r[4]=='d'?'dates/':'date-products/')+r[0]+'.jpg'}});
 const price=(p,wi)=>Math.round(p.base*p.w[wi][2]/5)*5;
 const sale=(p,wi)=>Math.round(price(p,wi)*(1-p.disc/100)/5)*5;
@@ -368,6 +369,27 @@ function place(e){e.preventDefault();const v=id=>$(id).value.trim();let ok=true;
 const chk=(c,er,k)=>{$(er).textContent=c?'':t(k);if(!c)ok=false};
 chk(v('fn').length>1,'e1','e1');chk(/^(\+?88)?01[3-9]\d{8}$/.test(v('fm')),'e2','e2');chk(v('fa').length>=10,'e3','e3');chk(v('fd2').length>1,'e4','e4');if(!ok)return;
 zone=/dhaka|ঢাকা/i.test(v('fd2'))?'d':'o';const x=totals(),id='KG'+Date.now().toString().slice(-6);
+const order = {
+  id, createdAt: new Date().toISOString(), customer: v('fn'), phone: v('fm'),
+  address: v('fa'), district: v('fd2'), zone, payment: 'Cash on Delivery',
+  items: cart.map(c => { const p=P.find(y=>y.id===c.id); return {
+    productId:p.id, nameBn:p.bn, nameEn:p.en, quantity:c.q, weight:p.w[c.wi][L],
+    unitPrice:sale(p,c.wi), lineTotal:sale(p,c.wi)*c.q
+  }; }),
+  subtotal:x.sub, delivery:x.dc, giftFee:x.gf, total:x.tot, status:'Pending',
+  stockAdjusted:false
+};
+try {
+  const orders = JSON.parse(localStorage.getItem('kg_orders') || '[]');
+  orders.unshift(order);
+  localStorage.setItem('kg_orders', JSON.stringify(orders));
+  const customers = JSON.parse(localStorage.getItem('kg_customers') || '[]');
+  const phone = order.phone.replace(/\\D/g,'');
+  const existing = customers.find(c => (c.phone||'').replace(/\\D/g,'') === phone);
+  if (existing) { existing.name=order.customer; existing.district=order.district; existing.totalOrders=(existing.totalOrders||0)+1; existing.totalSpent=(existing.totalSpent||0)+order.total; existing.lastOrderAt=order.createdAt; }
+  else customers.push({name:order.customer,phone:order.phone,district:order.district,totalOrders:1,totalSpent:order.total,lastOrderAt:order.createdAt});
+  localStorage.setItem('kg_customers', JSON.stringify(customers));
+} catch(err) { alert('অর্ডার সংরক্ষণ করা যায়নি। Browser storage পরীক্ষা করুন।'); console.error(err); return; }
 $('mc').innerHTML=`<div class="ok"><h2>${t('okH')}</h2><p><b>${id}</b></p><p style="margin:8px 0">${t('okP')}</p><p><b>${t('tot')}: ${fmt(x.tot)}</b></p><a class="btn" style="display:inline-block;margin-top:14px" target="_blank" rel="noopener" href="${wa(id+' · '+v('fn')+' · '+v('fm')+' · '+fmt(x.tot))}">${t('wam')}</a></div>`;
 cart=[];gift=false;save();renderCart()}
 applyLang();
